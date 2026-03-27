@@ -74,11 +74,30 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean deleteUser(int id) {
-        String sql = "DELETE FROM user WHERE id = ?";
-        try (Connection con = DBConnection.getConnection();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            return ps.executeUpdate() > 0;
+        String checkSQL  = "SELECT COUNT(*) FROM transaction WHERE user_id = ?";
+        String deleteSQL = "DELETE FROM user WHERE id = ?";
+
+        try (Connection con = DBConnection.getConnection()) {
+
+            // Step 1 — Check if transactions exist for this user
+            PreparedStatement ps1 = con.prepareStatement(checkSQL);
+            ps1.setInt(1, id);
+            ResultSet rs = ps1.executeQuery();
+            rs.next();
+            int count = rs.getInt(1);
+
+            // Step 2 — Block delete if transactions exist
+            if (count > 0) {
+                System.out.println("⚠️ Cannot delete! " + count +
+                        " transaction(s) linked to this user.");
+                return false;
+            }
+
+            // Step 3 — Safe to delete
+            PreparedStatement ps2 = con.prepareStatement(deleteSQL);
+            ps2.setInt(1, id);
+            return ps2.executeUpdate() > 0;
+
         } catch (SQLException e) { e.printStackTrace(); return false; }
     }
 
