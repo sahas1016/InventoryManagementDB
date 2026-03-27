@@ -1,6 +1,6 @@
--- ==============================================
+
 -- INVENTORY MANAGEMENT SYSTEM - INIT.SQL
--- ==============================================
+
 
 -- 1. Create Database
 CREATE DATABASE IF NOT EXISTS inventory_db;
