@@ -20,9 +20,9 @@ public class Main {
         // ══════════════════════════════════════════
         // 1. CATEGORY TESTS
         // ══════════════════════════════════════════
-        System.out.println("----------------------------");
+        System.out.println("-----------------------------");
         System.out.println("         CATEGORY TESTS       ");
-        System.out.println("----------------------------");
+        System.out.println("-----------------------------");
 
         System.out.println("Add Electronics : " + categoryDAO.addCategory(new Category("Electronics")));
         System.out.println("Add Furniture   : " + categoryDAO.addCategory(new Category("Furniture")));
