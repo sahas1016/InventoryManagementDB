@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("╔══════════════════════════════════════════╗");
-        System.out.println("║   INVENTORY MANAGEMENT - DATABASE LAYER  ║");
-        System.out.println("╚══════════════════════════════════════════╝\n");
+        System.out.println("----------------------------");
+        System.out.println("   INVENTORY MANAGEMENT - DATABASE LAYER  ");
+        System.out.println("----------------------------");
 
         CategoryDAOImpl    categoryDAO    = new CategoryDAOImpl();
         SupplierDAOImpl    supplierDAO    = new SupplierDAOImpl();
@@ -20,9 +20,9 @@ public class Main {
         // ══════════════════════════════════════════
         // 1. CATEGORY TESTS
         // ══════════════════════════════════════════
-        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        System.out.println("----------------------------");
         System.out.println("         CATEGORY TESTS       ");
-        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        System.out.println("----------------------------");
 
         System.out.println("Add Electronics : " + categoryDAO.addCategory(new Category("Electronics")));
         System.out.println("Add Furniture   : " + categoryDAO.addCategory(new Category("Furniture")));
@@ -45,9 +45,9 @@ public class Main {
         // ══════════════════════════════════════════
         // 2. SUPPLIER TESTS
         // ══════════════════════════════════════════
-        System.out.println("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        System.out.println("\n----------------------------");
         System.out.println("         SUPPLIER TESTS       ");
-        System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        System.out.println("----------------------------");
 
         System.out.println("Add TechMart  : " + supplierDAO.addSupplier(
                 new Supplier("TechMart Pvt Ltd",  "techmart@gmail.com",  "Hyderabad")));
@@ -73,7 +73,7 @@ public class Main {
         // ══════════════════════════════════════════
         // 3. USER TESTS
         // ══════════════════════════════════════════
-        System.out.println("----------------------------");
+        System.out.println("\n----------------------------");
         System.out.println("           USER TESTS         ");
         System.out.println("----------------------------");
 
@@ -84,10 +84,10 @@ public class Main {
         System.out.println("Add Staff   : " + userDAO.addUser(
                 new User("Sneha Reddy",  "sneha@inv.com", "sneha@789", "9812034567", "STAFF")));
 
-        System.out.println("\n--- All Users ---");
+        System.out.println("--- All Users ---");
         userDAO.getAllUsers().forEach(System.out::println);
 
-        System.out.println("\n--- Get User by Email ---");
+        System.out.println("--- Get User by Email ---");
         System.out.println(userDAO.getUserByEmail("arjun@inv.com"));
 
         System.out.println("\n--- Get User by ID (1) ---");
@@ -106,7 +106,7 @@ public class Main {
         // ══════════════════════════════════════════
         // 4. PRODUCT TESTS
         // ══════════════════════════════════════════
-        System.out.println("----------------------------");
+        System.out.println("\n----------------------------");
         System.out.println("          PRODUCT TESTS       ");
         System.out.println("----------------------------");
 
